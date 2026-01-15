@@ -1,0 +1,179 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Snake App Design System - Clinic Clean + Terra Neutral */
+    --background: 215 28% 97%; /* #F8FAFC */
+    --foreground: 222 84% 5%; /* #0F172A */
+
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-secondary: 35 25% 98%; /* #FAF7F2 */
+    --card-foreground: 222 84% 5%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 84% 5%;
+
+    --primary: 213 94% 68%; /* #2563EB */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 213 94% 68%;
+
+    --secondary: 158 25% 50%; /* #6D9886 */
+    --secondary-foreground: 0 0% 100%;
+    --secondary-dark: 158 25% 35%;
+
+    --muted: 215 28% 97%;
+    --muted-foreground: 215 20% 58%; /* #94A3B8 */
+
+    --accent: 158 25% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%; /* #E5E7EB */
+    --input: 220 13% 91%;
+    --ring: 213 94% 68%;
+
+    /* Design tokens */
+    --radius: 0.5rem;
+    --radius-card: 0.75rem; /* 12px */
+    --radius-button: 0.5rem; /* 8px */
+    
+    /* Shadows */
+    --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-button: 0 4px 12px rgba(37, 99, 235, 0.15);
+    --shadow-button-hover: 0 8px 20px rgba(37, 99, 235, 0.25);
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(213 94% 58%));
+    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-dark)));
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s ease-out;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
+
+@layer components {
+  /* Card variants */
+  .card-primary {
+    @apply bg-card border border-border rounded-[var(--radius-card)] shadow-[var(--shadow-card)];
+  }
+  
+  .card-secondary {
+    @apply bg-[hsl(var(--card-secondary))] border border-border rounded-[var(--radius-card)] shadow-[var(--shadow-card)];
+  }
+
+  /* Button animations */
+  .btn-predict {
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-[var(--shadow-button-hover)] active:scale-95;
+  }
+  
+  .btn-retry {
+    @apply transition-all duration-200 hover:scale-95;
+  }
+
+  /* Upload area animations */
+  .upload-area {
+    @apply transition-all duration-300 border-2 border-dashed border-border rounded-[var(--radius-card)];
+  }
+  
+  .upload-area-active {
+    @apply border-secondary shadow-[0_0_0_3px_hsl(var(--secondary)/0.1)];
+  }
+
+  /* Loading spinner */
+  .spinner {
+    @apply animate-spin rounded-full border-4 border-muted border-t-secondary;
+  }
+
+  /* Toast animations */
+  .toast-enter {
+    @apply animate-in slide-in-from-bottom-4 fade-in-0;
+  }
+  
+  .toast-exit {
+    @apply animate-out slide-out-to-bottom-4 fade-out-0;
+  }
+
+  /* Page transitions */
+  .page-enter {
+    @apply animate-in slide-in-from-right-4 fade-in-0 duration-300;
+  }
+  
+  .result-card-enter {
+    @apply animate-in slide-in-from-bottom-4 fade-in-0 duration-500;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');

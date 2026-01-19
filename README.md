@@ -70,24 +70,3 @@
 4.  **System Integration:** เชื่อมต่อระบบข้อมูลไปยังศูนย์กู้ภัยหรือโรงพยาบาลโดยตรง
 
 ---
-
-## การติดตั้งและใช้งาน (Installation)
-
-1.  **Clone Project**
-    ```bash
-    git clone [https://github.com/talay1234/G5_Emerald.git](https://github.com/talay1234/G5_Emerald.git)
-    ```
-
-2.  **Run Backend**
-    ```bash
-    cd backend
-    pip install -r requirements.txt
-    python backend-api.py
-    ```
-
-3.  **Run Frontend**
-    ```bash
-    cd frontend
-    npm install
-    npm run dev
-    ```
